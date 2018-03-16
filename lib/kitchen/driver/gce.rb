@@ -116,6 +116,8 @@ module Kitchen
         wait_for_server
 
         info("GCE instance <#{server_name}> created and ready.")
+
+        post_create_command
       rescue => e
         error("Error encountered during server creation: #{e.class}: #{e.message}")
         destroy(state)
